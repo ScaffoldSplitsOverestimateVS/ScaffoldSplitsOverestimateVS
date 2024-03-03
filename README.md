@@ -49,11 +49,16 @@ Modified the arguments to use different splitting methods (including scaffold sp
 ### The RDKit functions are used to extract descriptors from molecules and their descriptions.
 | Package                                 	| Function                                                                    	|
 |-----------------------------------------	|-----------------------------------------------------------------------------	|
-| AllChem.GetMorganFingerprintAsBitVect   	| Generate the Morgan Fingerprints [15] for the molecules.                    	|
+| AllChem.GetMorganFingerprintAsBitVect   	| Generate the Morgan Fingerprints for the molecules. [^1]                   	|
 | rdMolDescriptors.CalcTPSA               	| Calculate the area of the total polar surface.                              	|
 | rdMolDescriptors.CalcExactMolWt         	| Calculate the molecular weight.                                             	|
-| rdMolDescriptors.CalcCrippenDescriptors 	| Calculate the Crippen-Wildman partition coefficient (logP) parameters [16]. 	|
+| rdMolDescriptors.CalcCrippenDescriptors 	| Calculate the Crippen-Wildman partition coefficient (logP) parameters [^2]. 	|
 | rdMolDescriptors.CalcNumAliphaticRings  	| The number of aliphatic rings.                                              	|
+
+[^1]: Rogers, D., Hahn, M.: Extended-Connectivity Fingerprints. J. Chem. Inf. Model. 50, 742–754 (2010). [https://doi.org/10.1021/ci100050t](https://doi.org/10.1021/ci100050t).
+
+[^2]: Wildman, S.A., Crippen, G.M.: Prediction of physicochemical parameters by atomic contributions. Journal of Chemical Information and Computer Sciences 1999, 39 (5), 868-873. [https://doi.org/10.1021/ci990307l](https://doi.org/10.1021/ci990307l).
+
 
 ### Table of Splitting Size for Each Cell Line
 | Cell Line       	| Total Size 	| Scaffold Split Train Size 	| Scaffold Split Test Size 	| UMAP Split Train Size 	| UMAP Split Test Size 	|
