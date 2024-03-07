@@ -61,7 +61,6 @@ Modified the arguments to use different splitting methods (including scaffold sp
 
 
 ### Table of Splitting Size for Each Cell Line
-![image](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/17c66733-9d23-4b45-a7be-0c4d2c1fca5c)
 
 | Cell Line       	| Total Size 	| Scaffold Split Train Size 	| Scaffold Split Test Size 	| UMAP Split Train Size 	| UMAP Split Test Size 	|
 |-----------------	|------------	|---------------------------	|--------------------------	|-----------------------	|----------------------	|
