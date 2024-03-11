@@ -4,7 +4,7 @@
 [![PyPI version](https://badge.fury.io/py/pypi.svg)](https://badge.fury.io/py/pypi)
 
 This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Splits in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
-![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/428a2a6c-4e55-435d-8a8c-c6b01e46a377)
+![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
 
 ## Installation
