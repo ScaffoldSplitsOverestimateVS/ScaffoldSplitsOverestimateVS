@@ -32,6 +32,15 @@ conda activate my_environment
 conda install --file requirements.txt
 ```
 
+### Download and Extract the data
+First, download the data [here](https://drive.google.com/file/d/1YxFjGSQJfC_5ZSJIg1Tw0TMyaWxBDxuo/view?usp=sharing) and move the file `60_cell_lines.tar` to the `data` folder (it should be `./data/60_cell_lines.tar`).
+Then, extract the drug response data for all 60 cell lines in the `data` folder.
+
+```bash
+cd data
+tar -xvf 60_cell_lines.tar
+```
+
 ## Usage/Examples
 
 Run the Linear Regression and Random Forest models on all 60 cell lines:
