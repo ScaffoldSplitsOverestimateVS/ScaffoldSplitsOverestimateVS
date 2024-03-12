@@ -33,12 +33,12 @@ conda install --file requirements.txt
 ```
 
 ### Download and Extract the data
-First, download the data [here](https://drive.google.com/file/d/1YxFjGSQJfC_5ZSJIg1Tw0TMyaWxBDxuo/view?usp=sharing) and move the file `60_cell_lines.tar` to the `data` folder (it should be `./data/60_cell_lines.tar`).
+First, download the data [here](https://drive.google.com/file/d/1iEzxPRbq8TYg-1m-ePz6fxt8JkzLgPg-/view?usp=sharing) and move the file `60_cell_lines.tar.gz` to the `data` folder (it should be `./data/60_cell_lines.tar.gz`).
 Then, extract the drug response data for all 60 cell lines in the `data` folder.
 
 ```bash
 cd data
-tar -xvf 60_cell_lines.tar
+tar -xvf 60_cell_lines.tar.gz
 ```
 
 ## Usage/Examples
