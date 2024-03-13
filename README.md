@@ -144,3 +144,7 @@ Contributions are always welcome! If you'd like to contribute to this project, p
 4. Push to your fork and submit a pull request
 
 Please adhere to this project's `code of conduct`.
+
+## Acknowledgments
+
+Parts of this project are developed based on the GEM model from the [PaddleHelix repository](https://github.com/PaddlePaddle/PaddleHelix/tree/dev/apps/pretrained_compound/ChemRL/GEM). We appreciate the PaddleHelix team's work and their contributions to the community.
