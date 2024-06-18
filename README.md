@@ -41,6 +41,18 @@ cd data
 tar -xvf 60_cell_lines.tar.gz
 ```
 
+## Dataset Structure
+The dataset located at `./data/clustering_id_k7.csv` is prepared for the 7-fold cross-validation using various splitting algorithms. Each row in the dataset represents a unique chemical compound from all 60 different cell line datasets.
+
+- `NSC`: Unique identifier for the compound.
+- `SMILES`: SMILES representation of the chemical compound.
+- `Cluster_ID`: ID indicating the fold assignment for testing using UMAP-based clustering split for 7-fold cross-validation.
+- `Scaffold_Cluster_ID`: ID indicating the fold assignment for testing using scaffold split for 7-fold cross-validation.
+- `Random_Cluster_ID`: ID indicating the fold assignment for testing using random split for 7-fold cross-validation.
+- `Butina_Cluster_ID`: ID indicating the fold assignment for testing using Butina split for 7-fold cross-validation.
+
+Each `Cluster_ID` variant determines how compounds are assigned to the test sets in their respective folds, ensuring that the model is trained and validated comprehensively across diverse clustering methodologies.
+
 ## Usage/Examples
 
 Run the Linear Regression and Random Forest models on all 60 cell lines:
