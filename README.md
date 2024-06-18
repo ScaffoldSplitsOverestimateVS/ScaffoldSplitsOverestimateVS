@@ -6,6 +6,15 @@
 This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Splits in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
 ![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
+## Introduction to the Splits
+To ensure robust and comprehensive validation of our models, we employed four distinct clustering methodologies for creating 7-fold cross-validation splits.
+
+- `Random Split`: Randomly distributing compounds into different folds, and each fold is likely to have a representative mix of the overall dataset's characteristics. Random splits are beneficial for generalizing model performance but may inadvertently group structurally similar compounds into the same fold.
+- `Scaffold Split`: Scaffold Splitting is based on the chemical scaffolds of the molecules. This method groups compounds according to their core structures, and molecules with similar scaffolds are in the same fold.
+- `Butina Split`: The Butina Split uses the Butina clustering algorithm, which is a distance-based method that groups compounds into clusters based on their chemical similarity, determined by a predefined distance threshold. This approach ensures that compounds within the same cluster (and thus the same fold) are more chemically similar to each other than to those in other clusters.
+- `UMAP-based Clustering Split`: UMAP-based Clustering employs Uniform Manifold Approximation and Projection (UMAP) for dimensionality reduction followed by clustering. This technique is used to create folds based on the reduced dimensional representation of the data, capturing intrinsic patterns and structures that might not be apparent in the original high-dimensional space.
+
+Each of these clustering methods has been utilized to create distinct sets of folds in our dataset, enabling us to thoroughly evaluate our models' capabilities and limitations across diverse chemical data landscapes.
 
 ## Installation
 These instructions will guide you through setting up the Conda environment for the project.
