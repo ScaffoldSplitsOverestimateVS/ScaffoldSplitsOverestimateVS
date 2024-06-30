@@ -6,6 +6,9 @@
 This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Splits in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
 ![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
+## Preprint
+The preprint of the paper can be accessed [here](https://arxiv.org/abs/2406.00873). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
+
 ## Introduction to the Splits
 To ensure robust and comprehensive validation of our models, we employed four distinct clustering methodologies for creating 7-fold cross-validation splits.
 
