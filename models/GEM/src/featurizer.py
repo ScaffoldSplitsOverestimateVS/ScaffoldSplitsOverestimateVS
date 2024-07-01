@@ -17,7 +17,10 @@
 downstream featurizer
 """
 
+import os
 import numpy as np
+import pickle
+import pandas as pd
 import pgl
 from rdkit.Chem import AllChem
 import timeout_decorator
@@ -42,12 +45,31 @@ class DownstreamTransformFn(object):
         import threading
         smiles = raw_data['smiles']
         print(smiles)
+        ids = pd.read_csv('/rds/general/user/qg622/home/Y2/ScaffoldSplitsOverestimateVS/data/clustering_id_k7.csv')
+        nsc = ids[ids['SMILES'] == smiles]['NSC'].values[0]
+        
         mol = AllChem.MolFromSmiles(smiles)
         if mol is None:
             return None
         def run_line_of_code():
             global data
-            data = mol_to_geognn_graph_data_MMFF3d(mol)
+            file_path = f'/rds/general/user/qg622/home/Y2/ScaffoldSplitsOverestimateVS/data/GEM/all_mols/NSC_{nsc}.pickle'
+            if os.path.exists(file_path):
+                try:
+                    with open(file_path, 'rb') as handle:
+                        data = pickle.load(handle)
+                    print(f'Loaded feature for NSC {nsc}')
+                except:
+                    data = mol_to_geognn_graph_data_MMFF3d(mol)
+                    with open(file_path, 'wb') as handle:
+                        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                    print(f'Saved feature for NSC {nsc}')
+            else:
+                data = mol_to_geognn_graph_data_MMFF3d(mol)
+                with open(file_path, 'wb') as handle:
+                    pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+                print(f'Saved feature for NSC {nsc}')
+                
         timeout_duration = 10  # Timeout set to 10 seconds
         code_thread = threading.Thread(target=run_line_of_code)
         code_thread.start()

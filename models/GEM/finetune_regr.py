@@ -255,16 +255,25 @@ def main(args):
         dataset = torch.load(dataset_path)
 
     if args.split_type == 'LDMO':
-        clusters = pd.read_csv(args.clustering_id_path)[['SMILES','Cluster_ID']]
-        test_smiles_list = list(clusters[clusters['Cluster_ID'] == args.test_fold]['SMILES'].values)
+        cluster_name = 'Cluster_ID'
+        clusters = pd.read_csv(args.clustering_id_path)[['SMILES',cluster_name]]
+        test_smiles_list = list(clusters[clusters[cluster_name] == args.test_fold]['SMILES'].values)
         val_fold = 7 if args.test_fold == 1 else args.test_fold - 1
-        val_smiles_list = list(clusters[clusters['Cluster_ID'] == val_fold]['SMILES'].values)
+        val_smiles_list = list(clusters[clusters[cluster_name] == val_fold]['SMILES'].values)
     elif args.split_type == 'scaffold':
-        clusters = pd.read_csv(args.clustering_id_path)[['SMILES','Scaffold_Cluster_ID']]
-        test_smiles_list = list(clusters[clusters['Scaffold_Cluster_ID'] == args.test_fold]['SMILES'].values)
-        val_fold = 7 if args.test_fold == 1 else args.test_fold - 1
-        val_smiles_list = list(clusters[clusters['Scaffold_Cluster_ID'] == val_fold]['SMILES'].values)
+        cluster_name = 'Scaffold_Cluster_ID'
+    elif args.split_type == 'Butina':
+        cluster_name = 'Butina_Cluster_ID'
+    elif args.split_type == 'random':
+        cluster_name = 'Random_Cluster_ID'
+    else:
+        raise ValueError(f"Split {split} not supported.")
 
+    clusters = pd.read_csv(args.clustering_id_path)[['SMILES',cluster_name]]
+    test_smiles_list = list(clusters[clusters[cluster_name] == args.test_fold]['SMILES'].values)
+    val_fold = 7 if args.test_fold == 1 else args.test_fold - 1
+    val_smiles_list = list(clusters[clusters[cluster_name] == val_fold]['SMILES'].values)
+    
     train_idx, valid_idx, test_idx = [], [], []
     for idx, data_instance in enumerate(dataset.data_list):
         if data_instance:
@@ -366,7 +375,8 @@ def main(args):
     subprocess.call(f'cp {os.path.join(args.model_dir, f"epoch{best_epoch_id}", "test_labels.npy")} {os.path.join(args.model_dir, f"bestepoch{best_epoch_id}", "test_labels.npy")}', shell=True)
 
     test_results = calculate_resutls(y_test, y_pred)
-    cm_plot(os.path.join(best_dir_path, 'cm.png'), test_results, 'GEM', save=True)
+    cm_plot(os.path.join(best_dir_path, 'cm.svg'), test_results, args.cell_line, 'GEM', save=True)
+    
     del test_results['y_test']
     del test_results['y_pred']
     del test_results['cm']
@@ -414,7 +424,7 @@ if __name__ == '__main__':
     # parser.add_argument("--dataset_name", choices=['esol', 'freesolv', 'lipophilicity', 'qm7', 'qm8', 'qm9', 'qm9_gdb', 'tk10'], default='tk10')
     parser.add_argument("--data_path", type=str, default=None)
     parser.add_argument("--cached_data_path", type=str, default=None)
-    parser.add_argument("--split_type", choices=['random', 'scaffold', 'random_scaffold', 'index', 'LDMO'], default='LDMO')
+    parser.add_argument("--split_type", choices=['random', 'scaffold', 'random_scaffold', 'index', 'LDMO', 'Butina'], default='LDMO')
 
     parser.add_argument("--compound_encoder_config", type=str, default='model_configs/geognn_l8.json')
     parser.add_argument("--model_config", type=str,default="model_configs/down_mlp2.json")
