@@ -3,9 +3,15 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![PyPI version](https://badge.fury.io/py/pypi.svg)](https://badge.fury.io/py/pypi)
 
+<<<<<<< HEAD
 This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Splits in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
 ![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/428a2a6c-4e55-435d-8a8c-c6b01e46a377)
 
+=======
+This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Split in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
+
+![Abstract_Figure_for_EuroQSAR](https://github.com/Rong830/ScaffoldOverestimateVS/assets/90033687/132c080f-01fb-40a9-9cdd-815c9e5f096a)
+>>>>>>> main/main
 
 ## Installation
 These instructions will guide you through setting up the Conda environment for the project.
@@ -19,8 +25,13 @@ Make sure you have Conda installed on your system. If not, you can download and 
 Clone this repository to your local machine using the following command:
 
 ```bash
+<<<<<<< HEAD
 git clone https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS.git
 cd ScaffoldSplitsOverestimateVS
+=======
+git clone https://github.com/Rong830/ScaffoldOverestimateVS.git
+cd ScaffoldOverestimateVS
+>>>>>>> main/main
 ```
 
 ### Set Up Conda Environment
@@ -61,7 +72,10 @@ Modified the arguments to use different splitting methods (including scaffold sp
 
 
 ### Table of Splitting Size for Each Cell Line
+<<<<<<< HEAD
 
+=======
+>>>>>>> main/main
 | Cell Line       	| Total Size 	| Scaffold Split Train Size 	| Scaffold Split Test Size 	| UMAP Split Train Size 	| UMAP Split Test Size 	|
 |-----------------	|------------	|---------------------------	|--------------------------	|-----------------------	|----------------------	|
 | MCF7            	| 24264      	| 21019                     	| 3245                     	| 21310                 	| 2954                 	|
@@ -125,6 +139,12 @@ Modified the arguments to use different splitting methods (including scaffold sp
 | TK-10           	| 30974      	| 26905                     	| 4069                     	| 26837                 	| 4137                 	|
 | UO-31           	| 31508      	| 27364                     	| 4144                     	| 27295                 	| 4213                 	|
 
+<<<<<<< HEAD
+=======
+## Authors
+
+- [@Rong830](https://www.github.com/Rong830)
+>>>>>>> main/main
 ## Contributing
 
 Contributions are always welcome! If you'd like to contribute to this project, please follow the standard procedures:
