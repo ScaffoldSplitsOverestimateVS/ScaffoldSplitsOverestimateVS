@@ -207,7 +207,7 @@ if __name__ == '__main__':
                 json.dump(best_params, f, indent=4)
 
             test_results = calculate_resutls(test_dataset.label, y_pred)
-            cm_plot(os.path.join(save_dir,'cm.png'), test_results, model_name, save=True)
+            cm_plot(os.path.join(save_dir,'cm.svg'), test_results, args.cell_line, model_name, save=True)
 
             del test_results['y_test']
             del test_results['y_pred']
