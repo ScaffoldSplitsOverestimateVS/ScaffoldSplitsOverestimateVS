@@ -7,7 +7,7 @@ This repo contains all the codes used in the paper: Scaffold splits overestimate
 ![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
 ## Preprint
-The preprint of the paper can be accessed [here](https://arxiv.org/abs/2406.00873). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
+The preprint of the paper can be accessed here: [Scaffold Splits Overestimate Virtual Screening Performance](https://arxiv.org/abs/2406.00873). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
 
 ## Introduction to the Splits
 To ensure robust and comprehensive validation of our models, we employed four distinct clustering methodologies for creating 7-fold cross-validation splits.
@@ -176,3 +176,15 @@ Please adhere to this project's `code of conduct`.
 ## Acknowledgments
 
 Parts of this project are developed based on the GEM model from the [PaddleHelix repository](https://github.com/PaddlePaddle/PaddleHelix/tree/dev/apps/pretrained_compound/ChemRL/GEM). We appreciate the PaddleHelix team's work and their contributions to the community.
+
+## Citation
+If you use the code or data in this package, please cite:
+
+```bibtex
+@article{guo2024scaffold,
+  title={Scaffold Splits Overestimate Virtual Screening Performance},
+  author={Guo, Qianrong and Hernandez-Hernandez, Saiveth and Ballester, Pedro J},
+  journal={arXiv preprint arXiv:2406.00873},
+  year={2024}
+}
+```
