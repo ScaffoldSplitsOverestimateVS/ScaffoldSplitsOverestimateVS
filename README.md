@@ -3,15 +3,21 @@
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![PyPI version](https://badge.fury.io/py/pypi.svg)](https://badge.fury.io/py/pypi)
 
-<<<<<<< HEAD
 This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Splits in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
-![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/428a2a6c-4e55-435d-8a8c-c6b01e46a377)
+![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
-=======
-This repo contains all the codes used in the paper: Scaffold splits overestimate virtual screening performance, using traditional machine learning models and deep learning models to illustrate the limitation of using Scaffold Split in Drug Discovery. This repo can help researchers to reproduce what has been done in the article.
+## Preprint
+The preprint of the paper can be accessed [here](https://arxiv.org/abs/2406.00873). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
 
-![Abstract_Figure_for_EuroQSAR](https://github.com/Rong830/ScaffoldOverestimateVS/assets/90033687/132c080f-01fb-40a9-9cdd-815c9e5f096a)
->>>>>>> main/main
+## Introduction to the Splits
+To ensure robust and comprehensive validation of our models, we employed four distinct clustering methodologies for creating 7-fold cross-validation splits.
+
+- `Random Split`: Randomly distributing compounds into different folds, and each fold is likely to have a representative mix of the overall dataset's characteristics. Random splits are beneficial for generalizing model performance but may inadvertently group structurally similar compounds into the same fold.
+- `Scaffold Split`: Scaffold Splitting is based on the chemical scaffolds of the molecules. This method groups compounds according to their core structures, and molecules with similar scaffolds are in the same fold.
+- `Butina Split`: The Butina Split uses the Butina clustering algorithm, which is a distance-based method that groups compounds into clusters based on their chemical similarity, determined by a predefined distance threshold. This approach ensures that compounds within the same cluster (and thus the same fold) are more chemically similar to each other than to those in other clusters.
+- `UMAP-based Clustering Split`: UMAP-based Clustering employs Uniform Manifold Approximation and Projection (UMAP) for dimensionality reduction followed by clustering. This technique is used to create folds based on the reduced dimensional representation of the data, capturing intrinsic patterns and structures that might not be apparent in the original high-dimensional space.
+
+Each of these clustering methods has been utilized to create distinct sets of folds in our dataset, enabling us to thoroughly evaluate our models' capabilities and limitations across diverse chemical data landscapes.
 
 ## Installation
 These instructions will guide you through setting up the Conda environment for the project.
@@ -25,13 +31,8 @@ Make sure you have Conda installed on your system. If not, you can download and 
 Clone this repository to your local machine using the following command:
 
 ```bash
-<<<<<<< HEAD
 git clone https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS.git
 cd ScaffoldSplitsOverestimateVS
-=======
-git clone https://github.com/Rong830/ScaffoldOverestimateVS.git
-cd ScaffoldOverestimateVS
->>>>>>> main/main
 ```
 
 ### Set Up Conda Environment
@@ -42,6 +43,27 @@ conda create --name my_environment
 conda activate my_environment
 conda install --file requirements.txt
 ```
+
+### Download and Extract the data
+First, download the data [here](https://drive.google.com/file/d/1iEzxPRbq8TYg-1m-ePz6fxt8JkzLgPg-/view?usp=sharing) and move the file `60_cell_lines.tar.gz` to the `data` folder (it should be `./data/60_cell_lines.tar.gz`).
+Then, extract the drug response data for all 60 cell lines in the `data` folder.
+
+```bash
+cd data
+tar -xvf 60_cell_lines.tar.gz
+```
+
+## Dataset Structure
+The dataset located at `./data/clustering_id_k7.csv` is prepared for the 7-fold cross-validation using various splitting algorithms. Each row in the dataset represents a unique chemical compound from all 60 different cell line datasets.
+
+- `NSC`: Unique identifier for the compound.
+- `SMILES`: SMILES representation of the chemical compound.
+- `Cluster_ID`: ID indicating the fold assignment for testing using UMAP-based clustering split for 7-fold cross-validation.
+- `Scaffold_Cluster_ID`: ID indicating the fold assignment for testing using scaffold split for 7-fold cross-validation.
+- `Random_Cluster_ID`: ID indicating the fold assignment for testing using random split for 7-fold cross-validation.
+- `Butina_Cluster_ID`: ID indicating the fold assignment for testing using Butina split for 7-fold cross-validation.
+
+Each `Cluster_ID` variant determines how compounds are assigned to the test sets in their respective folds, ensuring that the model is trained and validated comprehensively across diverse clustering methodologies.
 
 ## Usage/Examples
 
@@ -72,10 +94,7 @@ Modified the arguments to use different splitting methods (including scaffold sp
 
 
 ### Table of Splitting Size for Each Cell Line
-<<<<<<< HEAD
 
-=======
->>>>>>> main/main
 | Cell Line       	| Total Size 	| Scaffold Split Train Size 	| Scaffold Split Test Size 	| UMAP Split Train Size 	| UMAP Split Test Size 	|
 |-----------------	|------------	|---------------------------	|--------------------------	|-----------------------	|----------------------	|
 | MCF7            	| 24264      	| 21019                     	| 3245                     	| 21310                 	| 2954                 	|
@@ -139,12 +158,10 @@ Modified the arguments to use different splitting methods (including scaffold sp
 | TK-10           	| 30974      	| 26905                     	| 4069                     	| 26837                 	| 4137                 	|
 | UO-31           	| 31508      	| 27364                     	| 4144                     	| 27295                 	| 4213                 	|
 
-<<<<<<< HEAD
-=======
 ## Authors
 
 - [@Rong830](https://www.github.com/Rong830)
->>>>>>> main/main
+
 ## Contributing
 
 Contributions are always welcome! If you'd like to contribute to this project, please follow the standard procedures:
@@ -155,3 +172,7 @@ Contributions are always welcome! If you'd like to contribute to this project, p
 4. Push to your fork and submit a pull request
 
 Please adhere to this project's `code of conduct`.
+
+## Acknowledgments
+
+Parts of this project are developed based on the GEM model from the [PaddleHelix repository](https://github.com/PaddlePaddle/PaddleHelix/tree/dev/apps/pretrained_compound/ChemRL/GEM). We appreciate the PaddleHelix team's work and their contributions to the community.
