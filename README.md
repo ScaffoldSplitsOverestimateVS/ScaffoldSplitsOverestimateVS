@@ -7,7 +7,7 @@ This repo contains all the codes used in the paper: Scaffold splits overestimate
 ![Figure](https://github.com/ScaffoldSplitsOverestimateVS/ScaffoldSplitsOverestimateVS/assets/162518242/2fb2cd9a-5273-4dca-9072-52ac8a12312a)
 
 ## Preprint
-The preprint of the paper can be accessed here: [Scaffold Splits Overestimate Virtual Screening Performance](https://github.com/user-attachments/files/16087984/Qianrong_ScaffoldSplitsOverestimateVirtualScreeningPerformance.1.pdf). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
+The preprint of the paper can be accessed here: [Scaffold Splits Overestimate Virtual Screening Performance](https://github.com/user-attachments/files/16088126/Qianrong_ScaffoldSplitsOverestimateVirtualScreeningPerformance.1.pdf). This provides a detailed overview and supplementary material that supports the conclusions drawn in this study.
 
 ## Introduction to the Splits
 To ensure robust and comprehensive validation of our models, we employed four distinct clustering methodologies for creating 7-fold cross-validation splits.
