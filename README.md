@@ -181,10 +181,20 @@ Parts of this project are developed based on the GEM model from the [PaddleHelix
 If you use the code or data in this package, please cite:
 
 ```bibtex
-@article{guo2024scaffold,
-  title={Scaffold Splits Overestimate Virtual Screening Performance},
-  author={Guo, Qianrong and Hernandez-Hernandez, Saiveth and Ballester, Pedro J},
-  journal={arXiv preprint arXiv:2406.00873},
-  year={2024}
+@conference{guo2024scaffold,
+    author="Guo, Qianrong
+    and Hernandez-Hernandez, Saiveth
+    and Ballester, Pedro J.",
+    editor="Wand, Michael
+    and Malinovsk{\'a}, Krist{\'i}na
+    and Schmidhuber, J{\"u}rgen
+    and Tetko, Igor V.",
+    title="Scaffold Splits Overestimate Virtual Screening Performance",
+    booktitle="Artificial Neural Networks and Machine Learning -- ICANN 2024",
+    year="2024",
+    publisher="Springer Nature Switzerland",
+    address="Cham",
+    pages="58--72",
+    isbn="978-3-031-72359-9"
 }
 ```
